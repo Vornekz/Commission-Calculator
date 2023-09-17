@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import SalesTeam from "@/components/sales-component/SalesTeam.vue";
+</script>
 
 <template>
   <section class="sales-main">
@@ -14,6 +16,7 @@
       </button>
       <button class="main-header__register">Register Sale</button>
     </header>
+    <SalesTeam />
   </section>
 </template>
 

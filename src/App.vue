@@ -1,8 +1,17 @@
 <script setup lang="ts">
 import Sales from "@/views/Sales.vue";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faUserSecret } from "@fortawesome/free-solid-svg-icons";
+import { useSalesData } from "@/store/salesData.ts";
+import { onMounted } from "vue";
+
+onMounted(async () => {
+  try {
+    await fetch("./data/SalesTeam.json")
+      .then((response) => response.json())
+      .then((value) => useSalesData().updateTeam(value));
+  } catch (error) {
+    console.error("Error", error);
+  }
+});
 </script>
 
 <template>
